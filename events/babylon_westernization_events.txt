@@ -26,16 +26,68 @@ event "Foreign Trading Port" {
     }
 }
 
-# Subsequent Modernization Events
+# Modern Military Equipment Event
 event "Modern Military Equipment" {
-    title = "Modern Military Equipment"
-    add_progress_journal_entry = 20
-    # Additional logic or events...
+    title = "Acquisition of Modern Military Equipment"
+    desc = "It's time to modernize our military equipment. This involves upgrading from traditional weaponry to more advanced arms like rifled muskets, artillery, and possibly early mechanized units."
+    
+    option "Invest in Rifled Muskets" {
+        name = "Upgrade Infantry Arms"
+        add_progress_journal_entry = 20
+        # Additional effects: Improve infantry effectiveness
+    }
+
+    option "Enhance Artillery" {
+        name = "Improve Artillery Units"
+        add_progress_journal_entry = 20
+        # Additional effects: Boost artillery range and power
+    }
 }
 
-# Other related events
-# ...
+# Modern Military Training Event
+event "Modern Military Training" {
+    title = "Revamp of Military Training"
+    desc = "Modern warfare requires updated tactics and training regimes. This includes implementing structured drill practices, advanced tactical training, and officer education programs."
+    
+    option "Implement Structured Drills" {
+        name = "Standardize Military Drills"
+        add_progress_journal_entry = 20
+        # Additional effects: Improve overall troop discipline and coordination
+    }
 
+    option "Advanced Tactical Training" {
+        name = "Enhance Tactical Prowess"
+        add_progress_journal_entry = 20
+        # Additional effects: Troops gain better field tactics, increasing combat effectiveness
+    }
+
+    option "Establish Officer Education Program" {
+        name = "Improve Officer Corps"
+        add_progress_journal_entry = 20
+        # Additional effects: Higher quality of military leadership 
+    }
+}
+# Education Reform Event
+event "Education Reform" {
+    title = "Revolutionizing Education"
+    desc = "To build a modern nation, we must reform our education system. This includes establishing public schooling, promoting higher education, and incorporating technical and vocational training."
+
+    option "Establish Public Schooling" {
+        name = "Found National Schools"
+        add_progress_journal_entry = 20
+        # Additional effects: Increased literacy, better educated populace
+    }
+
+    option "Promote Higher Education" {
+        name = "Support Universities"
+        add_progress_journal_entry = 20
+        # Additional effects: Boost in scientific research and innovation
+    }
+
+    option "Incorporate Technical Training" {
+        name = "Expand Vocational Education"
+        add_progress_journal_entry = 20
+        # Additional effects: Improvement in industrial workforce 
 # Daily Check for Congress of Europe Trigger
 every_day = {
     if = {
@@ -43,7 +95,29 @@ every_day = {
         trigger_event = "Congress of Europe"
     }
 }
+# Administrative Reform Event
+event "Administrative Reform" {
+    title = "Modernizing Administration"
+    desc = "An efficient administration is crucial for a modern state. We must decide on centralizing governmental power, decentralizing to regional authorities, or enhancing bureaucratic efficiency."
 
+    option "Centralize Government" {
+        name = "Strengthen Central Authority"
+        add_progress_journal_entry = 20
+        # Additional effects: Increased national unity, streamlined decision-making
+    }
+
+    option "Decentralize Authority" {
+        name = "Empower Regional Governments"
+        add_progress_journal_entry = 20
+        # Additional effects: Improved local governance, increased regional autonomy
+    }
+
+    option "Enhance Bureaucratic Efficiency" {
+        name = "Streamline Bureaucracy"
+        add_progress_journal_entry = 20
+        # Additional effects: Reduced administrative costs, quicker implementation of policies
+    }
+}
 # Congress of Europe Event
 event "Congress of Europe" {
     title = "The Congress of Europe"
