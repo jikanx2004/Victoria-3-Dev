@@ -118,19 +118,33 @@ event "Administrative Reform" {
         # Additional effects: Reduced administrative costs, quicker implementation of policies
     }
 }
-# Congress of Europe Event
-event "Congress of Europe" {
-    title = "The Congress of Europe"
-    desc = "Our nation's modernization efforts have caught the attention of Europe. A congress has been convened to discuss our recognition."
-    option "Attend the Congress" {
-        name = "We will attend"
-        # Effects or outcomes of attending the Congress
+# Conference Trigger Event
+event "Diplomatic Conference Trigger" {
+    title = "Convening a Grand Conference"
+    desc = "Our nation's progress and influence have reached a point where hosting a grand diplomatic conference is feasible. This will allow us to address major international issues, form alliances, or reshape regional politics."
+
+    # Trigger conditions for the conference
+    trigger = {
+        AND = {
+            modernization_progress = 100
+            international_reputation = high
+            stability = stable
+        }
     }
-    option "Ignore the Congress" {
-        name = "We will not participate"
-        # Effects or outcomes of ignoring the Congress
+
+    option "Host the Conference" {
+        name = "Bring Nations Together"
+        # Additional effects: Potential alliances, diplomatic resolutions, trade agreements
+    }
+
+    option "Postpone the Conference" {
+        name = "Wait for a Better Time"
+        # Additional effects: Maintain current diplomatic status, possible missed opportunities
     }
 }
+
+# Placeholder for further actions or events
+# ...
 
 # Placeholder for further actions or events
 # ...
