@@ -1,0 +1,62 @@
+# Unified Pseudo-code for Victoria 3 Style Game - Modernization Events and Congress of Europe Trigger
+
+# Modernization Event Series
+# Trigger for Journal Entry - Modernization of Nation
+trigger = {
+    OR = {
+        has_coastal_state = yes
+        has_border_with_recognized_state = yes
+    }
+    NOT = { has_isolation_law = yes }
+}
+
+# Main Event - Foreign Trading Port
+event "Foreign Trading Port" {
+    title = "Allow Foreign Trading Port"
+    desc = "Should we allow foreign trading ports? This will progress our modernization efforts."
+    option "Yes" {
+        name = "Allow it"
+        add_progress_journal_entry = 20
+        trigger_event = "Modern Military Equipment" after 730 days # 2 years
+    }
+    option "No" {
+        name = "Reject it"
+        wait_days = 720
+        trigger_event = "Foreign Trading Port" # Re-trigger this event after 720 days
+    }
+}
+
+# Subsequent Modernization Events
+event "Modern Military Equipment" {
+    title = "Modern Military Equipment"
+    add_progress_journal_entry = 20
+    # Additional logic or events...
+}
+
+# Other related events
+# ...
+
+# Daily Check for Congress of Europe Trigger
+every_day = {
+    if = {
+        limit = { journal_entry_progress = 100 }
+        trigger_event = "Congress of Europe"
+    }
+}
+
+# Congress of Europe Event
+event "Congress of Europe" {
+    title = "The Congress of Europe"
+    desc = "Our nation's modernization efforts have caught the attention of Europe. A congress has been convened to discuss our recognition."
+    option "Attend the Congress" {
+        name = "We will attend"
+        # Effects or outcomes of attending the Congress
+    }
+    option "Ignore the Congress" {
+        name = "We will not participate"
+        # Effects or outcomes of ignoring the Congress
+    }
+}
+
+# Placeholder for further actions or events
+# ...
