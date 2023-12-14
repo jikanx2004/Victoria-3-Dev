@@ -142,9 +142,3 @@ event "Diplomatic Conference Trigger" {
         # Additional effects: Maintain current diplomatic status, possible missed opportunities
     }
 }
-
-# Placeholder for further actions or events
-# ...
-
-# Placeholder for further actions or events
-# ...
