@@ -1,94 +1,19 @@
-# Enhanced Unified Pseudo-code for Victoria 3 Style Game - Modernization Events and Congress of Europe Trigger
+modifier "sound_toll" {
+    # Economic Effects
+    increase_in_trade_income = { value = 0.10 } # Represents additional income from toll collection.
+    increase_in_naval_maintenance = { value = 0.05 } # Reflects the cost of enforcing the toll.
 
-# Modernization Event Series with Advanced Scoping
-# Trigger for Journal Entry - Modernization of Nation
-trigger = {
-    OR = {
-        has_coastal_state = yes
-        has_border_with_recognized_state = yes
-        NOT = { has_isolation_law = yes }
-        # Advanced Scoping: Evaluate country's geopolitical status and internal laws
-    }
+    # Diplomatic Effects
+    increase_in_diplomatic_tension = { value = 0.05 } # Represents the strain on international relations due to the toll.
+    decrease_in_relations_with_neighboring_countries = { value = -10 } # Reflects displeasure of neighboring countries affected by the toll.
+
+    # Military Effects
+    naval_supremacy_bonus = { value = 0.05 } # Bonus to naval battles in home waters, showing control over the straits.
+
+    # Domestic Effects
+    increase_in_national_prestige = { value = 0.05 } # Reflects the prestige gained from controlling such an important trade route.
+
+    # Duration and Conditions
+    duration = { years = 10 } # Or until certain diplomatic or military events occur.
+    trigger = { controls_danish_straits = yes } # Only active if the player controls the necessary regions.
 }
-
-# Main Event - Foreign Trading Port with Conditional Triggers
-event "Foreign Trading Port" {
-    title = "Allow Foreign Trading Port"
-    desc = "Should we allow foreign trading ports? This will progress our modernization efforts."
-    option "Yes" {
-        name = "Allow it"
-        add_progress_journal_entry = 20
-        # Trigger next event with delay
-        trigger_event = { id = "Modern Military Equipment" days = 730 } # 2 years
-    }
-    option "No" {
-        name = "Reject it"
-        wait_days = 720
-        # Re-trigger this event after 720 days with advanced conditional checks
-        trigger_event = "Foreign Trading Port" 
-    }
-    # Event Scopes: country, market, trade_route
-}
-
-# Modern Military Equipment Event with Expanded Options
-event "Modern Military Equipment" {
-    title = "Acquisition of Modern Military Equipment"
-    desc = "It's time to modernize our military equipment. This involves upgrading from traditional weaponry to more advanced arms like rifled muskets, artillery, and possibly early mechanized units."
-    option "Invest in Rifled Muskets" {
-        name = "Upgrade Infantry Arms"
-        add_progress_journal_entry = 20
-        # Additional effects: Improve infantry effectiveness
-        # Event Scopes: military_formation, combat_unit_type
-    }
-    # Additional options with specific triggers and effects...
-}
-
-# Administrative Reform Event with Dynamic Scoping
-event "Administrative Reform" {
-    title = "Modernizing Administration"
-    desc = "An efficient administration is crucial for a modern state. We must decide on centralizing governmental power, decentralizing to regional authorities, or enhancing bureaucratic efficiency."
-    option "Centralize Government" {
-        name = "Strengthen Central Authority"
-        add_progress_journal_entry = 20
-        # Additional effects: Increased national unity, streamlined decision-making
-        # Event Scopes: state, government_size
-    }
-    # Additional options with specific triggers and effects...
-}
-
-# Education Reform Event with Targeted Improvements
-event "Education Reform" {
-    title = "Revolutionizing Education"
-    desc = "To build a modern nation, we must reform our education system. This includes establishing public schooling, promoting higher education, and incorporating technical and vocational training."
-    option "Establish Public Schooling" {
-        name = "Found National Schools"
-        add_progress_journal_entry = 20
-        # Additional effects: Increased literacy, better educated populace
-        # Event Scopes: pop, culture
-    }
-    # Additional options with specific triggers and effects...
-}
-
-# Conference Trigger Event with Complex Conditions
-event "Diplomatic Conference Trigger" {
-    title = "Convening a Grand Conference"
-    desc = "Our nation's progress and influence have reached a point where hosting a grand diplomatic conference is feasible. This will allow us to address major international issues, form alliances, or reshape regional politics."
-    # Trigger conditions for the conference
-    trigger = {
-        AND = {
-            modernization_progress = 100
-            international_reputation = high
-            stability = stable
-            # Advanced Scopes: diplomatic_relations, international_tension
-        }
-    }
-    option "Host the Conference" {
-        name = "Bring Nations Together"
-        # Additional effects: Potential alliances, diplomatic resolutions, trade agreements
-        # Event Scopes: diplomatic_play, diplomatic_pact
-    }
-    # Additional options with specific triggers and effects...
-}
-
-# Placeholder for further actions or events with dynamic scoping
-# ...
