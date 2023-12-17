@@ -1,144 +1,94 @@
-# Unified Pseudo-code for Victoria 3 Style Game - Modernization Events and Congress of Europe Trigger
+# Enhanced Unified Pseudo-code for Victoria 3 Style Game - Modernization Events and Congress of Europe Trigger
 
-# Modernization Event Series
+# Modernization Event Series with Advanced Scoping
 # Trigger for Journal Entry - Modernization of Nation
 trigger = {
     OR = {
         has_coastal_state = yes
         has_border_with_recognized_state = yes
+        NOT = { has_isolation_law = yes }
+        # Advanced Scoping: Evaluate country's geopolitical status and internal laws
     }
-    NOT = { has_isolation_law = yes }
 }
 
-# Main Event - Foreign Trading Port
+# Main Event - Foreign Trading Port with Conditional Triggers
 event "Foreign Trading Port" {
     title = "Allow Foreign Trading Port"
     desc = "Should we allow foreign trading ports? This will progress our modernization efforts."
     option "Yes" {
         name = "Allow it"
         add_progress_journal_entry = 20
-        trigger_event = "Modern Military Equipment" after 730 days # 2 years
+        # Trigger next event with delay
+        trigger_event = { id = "Modern Military Equipment" days = 730 } # 2 years
     }
     option "No" {
         name = "Reject it"
         wait_days = 720
-        trigger_event = "Foreign Trading Port" # Re-trigger this event after 720 days
+        # Re-trigger this event after 720 days with advanced conditional checks
+        trigger_event = "Foreign Trading Port" 
     }
+    # Event Scopes: country, market, trade_route
 }
 
-# Modern Military Equipment Event
+# Modern Military Equipment Event with Expanded Options
 event "Modern Military Equipment" {
     title = "Acquisition of Modern Military Equipment"
     desc = "It's time to modernize our military equipment. This involves upgrading from traditional weaponry to more advanced arms like rifled muskets, artillery, and possibly early mechanized units."
-    
     option "Invest in Rifled Muskets" {
         name = "Upgrade Infantry Arms"
         add_progress_journal_entry = 20
         # Additional effects: Improve infantry effectiveness
+        # Event Scopes: military_formation, combat_unit_type
     }
-
-    option "Enhance Artillery" {
-        name = "Improve Artillery Units"
-        add_progress_journal_entry = 20
-        # Additional effects: Boost artillery range and power
-    }
+    # Additional options with specific triggers and effects...
 }
 
-# Modern Military Training Event
-event "Modern Military Training" {
-    title = "Revamp of Military Training"
-    desc = "Modern warfare requires updated tactics and training regimes. This includes implementing structured drill practices, advanced tactical training, and officer education programs."
-    
-    option "Implement Structured Drills" {
-        name = "Standardize Military Drills"
-        add_progress_journal_entry = 20
-        # Additional effects: Improve overall troop discipline and coordination
-    }
-
-    option "Advanced Tactical Training" {
-        name = "Enhance Tactical Prowess"
-        add_progress_journal_entry = 20
-        # Additional effects: Troops gain better field tactics, increasing combat effectiveness
-    }
-
-    option "Establish Officer Education Program" {
-        name = "Improve Officer Corps"
-        add_progress_journal_entry = 20
-        # Additional effects: Higher quality of military leadership 
-    }
-}
-# Education Reform Event
-event "Education Reform" {
-    title = "Revolutionizing Education"
-    desc = "To build a modern nation, we must reform our education system. This includes establishing public schooling, promoting higher education, and incorporating technical and vocational training."
-
-    option "Establish Public Schooling" {
-        name = "Found National Schools"
-        add_progress_journal_entry = 20
-        # Additional effects: Increased literacy, better educated populace
-    }
-
-    option "Promote Higher Education" {
-        name = "Support Universities"
-        add_progress_journal_entry = 20
-        # Additional effects: Boost in scientific research and innovation
-    }
-
-    option "Incorporate Technical Training" {
-        name = "Expand Vocational Education"
-        add_progress_journal_entry = 20
-        # Additional effects: Improvement in industrial workforce 
-# Daily Check for Congress of Europe Trigger
-every_day = {
-    if = {
-        limit = { journal_entry_progress = 100 }
-        trigger_event = "Congress of Europe"
-    }
-}
-# Administrative Reform Event
+# Administrative Reform Event with Dynamic Scoping
 event "Administrative Reform" {
     title = "Modernizing Administration"
     desc = "An efficient administration is crucial for a modern state. We must decide on centralizing governmental power, decentralizing to regional authorities, or enhancing bureaucratic efficiency."
-
     option "Centralize Government" {
         name = "Strengthen Central Authority"
         add_progress_journal_entry = 20
         # Additional effects: Increased national unity, streamlined decision-making
+        # Event Scopes: state, government_size
     }
-
-    option "Decentralize Authority" {
-        name = "Empower Regional Governments"
-        add_progress_journal_entry = 20
-        # Additional effects: Improved local governance, increased regional autonomy
-    }
-
-    option "Enhance Bureaucratic Efficiency" {
-        name = "Streamline Bureaucracy"
-        add_progress_journal_entry = 20
-        # Additional effects: Reduced administrative costs, quicker implementation of policies
-    }
+    # Additional options with specific triggers and effects...
 }
-# Conference Trigger Event
+
+# Education Reform Event with Targeted Improvements
+event "Education Reform" {
+    title = "Revolutionizing Education"
+    desc = "To build a modern nation, we must reform our education system. This includes establishing public schooling, promoting higher education, and incorporating technical and vocational training."
+    option "Establish Public Schooling" {
+        name = "Found National Schools"
+        add_progress_journal_entry = 20
+        # Additional effects: Increased literacy, better educated populace
+        # Event Scopes: pop, culture
+    }
+    # Additional options with specific triggers and effects...
+}
+
+# Conference Trigger Event with Complex Conditions
 event "Diplomatic Conference Trigger" {
     title = "Convening a Grand Conference"
     desc = "Our nation's progress and influence have reached a point where hosting a grand diplomatic conference is feasible. This will allow us to address major international issues, form alliances, or reshape regional politics."
-
     # Trigger conditions for the conference
     trigger = {
         AND = {
             modernization_progress = 100
             international_reputation = high
             stability = stable
+            # Advanced Scopes: diplomatic_relations, international_tension
         }
     }
-
     option "Host the Conference" {
         name = "Bring Nations Together"
         # Additional effects: Potential alliances, diplomatic resolutions, trade agreements
+        # Event Scopes: diplomatic_play, diplomatic_pact
     }
-
-    option "Postpone the Conference" {
-        name = "Wait for a Better Time"
-        # Additional effects: Maintain current diplomatic status, possible missed opportunities
-    }
+    # Additional options with specific triggers and effects...
 }
+
+# Placeholder for further actions or events with dynamic scoping
+# ...
