@@ -42,6 +42,6 @@ COUNTRIES = {
 		}
 		
 		add_modifier = {
-			name = modifier_Sound_Toll_payments
+			name = modifier_sound_toll_payments
 	}
 }
