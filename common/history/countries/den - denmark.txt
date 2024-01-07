@@ -1,4 +1,4 @@
-﻿COUNTRIES = {
+COUNTRIES = {
 	c:DEN = {
 		effect_starting_technology_tier_2_tech = yes
 		add_technology_researched = dialectics
@@ -26,8 +26,6 @@
 		activate_law = law_type:law_colonial_exploitation
     	activate_law = law_type:law_right_of_assembly
     	activate_law = law_type:law_colonial_exploitation
-    	activate_law = law_type:law_imperialism
-
 
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
@@ -38,14 +36,12 @@
 			institution = institution_schools
 			level = 3
 		}	
-
-		set_institution_investment_level = {
-			institution = institution_citizenship
-			level = 3
-		}	
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
+		
+		add_modifier = {
+			name = modifier_sound_toll_payments
 	}
 }

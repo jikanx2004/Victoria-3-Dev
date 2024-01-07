@@ -1,0 +1,19 @@
+modifier "sound_toll" {
+    # Economic Effects
+    increase_in_trade_income = { value = 0.10 } # Represents additional income from toll collection.
+    increase_in_naval_maintenance = { value = 0.05 } # Reflects the cost of enforcing the toll.
+
+    # Diplomatic Effects
+    increase_in_diplomatic_tension = { value = 0.05 } # Represents the strain on international relations due to the toll.
+    decrease_in_relations_with_neighboring_countries = { value = -10 } # Reflects displeasure of neighboring countries affected by the toll.
+
+    # Military Effects
+    naval_supremacy_bonus = { value = 0.05 } # Bonus to naval battles in home waters, showing control over the straits.
+
+    # Domestic Effects
+    increase_in_national_prestige = { value = 0.05 } # Reflects the prestige gained from controlling such an important trade route.
+
+    # Duration and Conditions
+    duration = { years = 10 } # Or until certain diplomatic or military events occur.
+    trigger = { controls_danish_straits = yes } # Only active if the player controls the necessary regions.
+}
