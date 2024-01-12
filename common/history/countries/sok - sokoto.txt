@@ -4,10 +4,15 @@
 		
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_traditionalism
-		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_mercantilism #they controlled subsaharan trade routes and used it to fund there economy along with slaver
+		activate_law = law_type:law_the_inquisition
+		activate_law = law_type:law_faith_orders #they were a fulani jihad state and used religion as a way to gather people to there banner
+		activate_law = law_type:law_professional_army #The military, which was commanded by the Sarkin Yaki (war commander) the title still held by the descendants of Ali Jedo, at the time of the jihad was organized into a standing army and a cavalry
+		activate_law = law_type:law_the_inquisition
+		activate_law = law_type:law_meritocratic_bureaucracy #The early rulers of Sokoto, dan Fodio and Bello, abolished systems of hereditary succession, preferring leaders to be appointed by virtue of their Islamic scholarship and moral standing.
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_slave_trade	
-		activate_law = law_type:law_armed_neutrality
+		activate_law = law_type:law_expansionism #they were a jihad state
 
 
 		ig:ig_devout = {
